@@ -1,4 +1,14 @@
 p.sub-lead {
     text-decoration: underline;
     font-weight: 700;
+    transition: all 0.5s;
 }
+
+p.sub-lead:hover {
+    font-style: italic;
+    font-size: 1.5em;
+}
+
+a:visited {
+    color: aqua;
+} 
