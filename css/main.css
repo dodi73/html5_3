@@ -14,21 +14,25 @@
 }
 
 /* Profil div */
-
+/* Megdjuk, hogy honnan indulunk */
 .profile-div {
     position: fixed; /* Fix a pozíciója */
     left: -100%;     /* Balról legyen beúsztatva, animálva, kiteszi a monitor bal szélén kívülre */
+    top: 100px;
     opacity: 0;     /* Láthatóság */
     /* transition: left 0.5s; /* Beúsztatja balról, animálva */ 
     /* transition: all 0.5s; */
     
 }
 
+/* Megadjuk, hogy hova érkezünk */ 
 .profile-div.show {
     position: relative; /* Fix a pozíciója */
-    animation-name: facebook;
-    animation-duration: 0.5s;
+    animation-name: facebook; /* Animáció neve */
+    animation-duration: 1s; /* Animáció időtartama */
+    animation-timing-function: ease-out; /* Belassul a végén a mozgás */
     left: 0;     /* Balról legyen beúsztatva, animálva, kiteszi a monitor bal szélén kívülre */
+    top: 0;
     opacity: 1;
 }
 
@@ -37,11 +41,17 @@
     margin: 10px auto; /* margó 10px és jobbról, balról auto, tehát középre igazítja */
 }
 
+/* Így készíthetők responsive oldalak. Itt, ha a képernyő szélessége 550px alá esik
+    akkor a .profile-div form szélessége 100%-lesz.*/
+@media screen and (max-width: 550px) {
+    .profile-div form {
+        width: 30%;
+    }
+}
+
 /* Keyframes, kulcskockák létrehozása az animációhoz (az animáció állomásai)*/
 @keyframes facebook {
-    0%      {opacity: 0; left: -100%;}
-    25%     {opacity: 0; left: -75%;}
-    50%     {opacity: 0; left: -50%;}
-    75%     {opacity: 0; left: -25%;}    
-    100%    {opacity: 1; left: 0;}        
+    0%      {opacity: 0; left: -100%; top: 100px;}
+    50%     {opacity: 0.5; left: 0; top: 100px;}
+    100%    {opacity: 1; left: 0; top: 0;}        
 }
