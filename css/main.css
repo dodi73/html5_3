@@ -1,14 +1,47 @@
-p.sub-lead {
-    text-decoration: underline;
-    font-weight: 700;
-    transition: all 0.5s;
+/* Facebook gomb. */
+.btn-facebook {
+    border: none;
+    background-color: #3b5998;
+    color: #f0f0f0;
+    /* x és y irányú eltolása az árnyéknak, 5px a mérete, színe */
+    box-shadow: 0 0 3px #777777; 
+    border-radius: 3px;   /* Sarkok kerekítése */
+    transition: all 0.5s; /* Áttűnés mértéke, animáció */
 }
 
-p.sub-lead:hover {
-    font-style: italic;
-    font-size: 1.5em;
+.btn-facebook:hover {
+    box-shadow: 0 0 8px #777777;  
 }
 
-a:visited {
-    color: aqua;
-} 
+/* Profil div */
+
+.profile-div {
+    position: fixed; /* Fix a pozíciója */
+    left: -100%;     /* Balról legyen beúsztatva, animálva, kiteszi a monitor bal szélén kívülre */
+    opacity: 0;     /* Láthatóság */
+    /* transition: left 0.5s; /* Beúsztatja balról, animálva */ 
+    /* transition: all 0.5s; */
+    
+}
+
+.profile-div.show {
+    position: relative; /* Fix a pozíciója */
+    animation-name: facebook;
+    animation-duration: 0.5s;
+    left: 0;     /* Balról legyen beúsztatva, animálva, kiteszi a monitor bal szélén kívülre */
+    opacity: 1;
+}
+
+.profile-div form {
+    width: 50%;
+    margin: 10px auto; /* margó 10px és jobbról, balról auto, tehát középre igazítja */
+}
+
+/* Keyframes, kulcskockák létrehozása az animációhoz (az animáció állomásai)*/
+@keyframes facebook {
+    0%      {opacity: 0; left: -100%;}
+    25%     {opacity: 0; left: -75%;}
+    50%     {opacity: 0; left: -50%;}
+    75%     {opacity: 0; left: -25%;}    
+    100%    {opacity: 1; left: 0;}        
+}
